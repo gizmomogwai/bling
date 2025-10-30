@@ -20,7 +20,7 @@ end
 
 local function get_icon(icon_raw)
     if icon_raw ~= nil then
-        return gears.color.recolor_image(icon_raw, beautiful.fg_normal)
+        return gears.color.recolor_image(icon_raw, beautiful.fg_focus)
     else
         return nil
     end
@@ -37,7 +37,7 @@ local layouts = {
 
 for _, layout_name in ipairs(layouts) do
     local icon_raw = get_layout_icon_path(layout_name)
-    if beautiful["layout_" .. layout_name] == nil then 
+    if beautiful["layout_" .. layout_name] == nil then
         beautiful["layout_" .. layout_name] = get_icon(icon_raw)
     end
     M[layout_name] = require(... .. "." .. layout_name)
